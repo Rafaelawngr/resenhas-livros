@@ -18,7 +18,7 @@ class Livro(models.Model):
     genero = models.CharField(max_length=45)
 
     def __str__(self):
-        return self.titulo
+        return self.titulo 
 
 class Resenha(models.Model):
     titulo = models.CharField(max_length=200)

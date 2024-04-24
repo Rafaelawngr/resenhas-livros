@@ -1,0 +1,170 @@
+{%load static%}
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
+  </head>
+
+  <body>
+    <aside>
+      <div class="topSection">
+        {% comment %}
+        <img class="logo" src="../imagens/logo-light.png" alt="logoLight" />
+        {%endcomment %}
+
+        <div class="buttonsContainer">
+          <button class="navButton">Biblioteca</button>
+          <button class="navButton">Cadastrar Livro</button>
+          <button class="navButton">Conta</button>
+        </div>
+      </div>
+
+      <div class="bottomSection">
+        <a href="../cadastro/index.html">
+          <button class="logoutButton">Sair</button>
+        </a>
+      </div>
+    </aside>
+
+    <main>
+      <div class="filtersContainter">
+        <input
+          class="searchBar"
+          type="text"
+          placeholder="Insira o nome do livro"
+        />
+
+        <select class="filterOptions" name="filters" id="filters">
+          <option value="writer">Autor</option>
+          <option value="title">Título</option>
+          <option value="score">Nota</option>
+        </select>
+      </div>
+
+      {% for livro in livros %}
+      <div class="card">
+        <h3>Titulo: {{ livro.titulo }}</h3>
+        <p>ISBN: {{ livro.isbn }}</p>
+        <p>Autor: {{ livro.autor }}</p>
+        <p>Gênero: {{ livro.genero }}</p>
+        <p>Ano de publicação: {{ livro.ano }}</p>
+      </div>
+      {% endfor %} {% comment %}
+      <div class="cardsContainer">
+        <a href="../book-page/index.html">
+          <div class="card">
+            <img
+              class="bookCover"
+              src="../imagens/book-one.png"
+              alt="livro-um"
+            />
+          </div>
+        </a>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-two.png"
+            alt="livro-dois"
+          />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-four.png"
+            alt="livro-quatro"
+          />
+        </div>
+
+        <div class="card">
+          <img class="bookCover" src="../imagens/book-one.png" alt="livro-um" />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-two.png"
+            alt="livro-dois"
+          />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-three.png"
+            alt="livro-tres"
+          />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-four.png"
+            alt="livro-quatro"
+          />
+        </div>
+
+        <div class="card">
+          <img class="bookCover" src="../imagens/book-one.png" alt="livro-um" />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-two.png"
+            alt="livro-dois"
+          />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-three.png"
+            alt="livro-tres"
+          />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-four.png"
+            alt="livro-quatro"
+          />
+        </div>
+
+        <div class="card">
+          <img class="bookCover" src="../imagens/book-one.png" alt="livro-um" />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-two.png"
+            alt="livro-dois"
+          />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-three.png"
+            alt="livro-tres"
+          />
+        </div>
+
+        <div class="card">
+          <img
+            class="bookCover"
+            src="../imagens/book-four.png"
+            alt="livro-quatro"
+          />
+        </div>
+        {% endcomment %}
+      </div>
+    </main>
+  </body>
+</html>
