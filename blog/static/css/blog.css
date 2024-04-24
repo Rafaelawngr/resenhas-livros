@@ -74,7 +74,7 @@ aside {
 
 main {
   grid-area: main;
-  margin: 2rem auto;
+  margin: 2.5rem auto;
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
@@ -134,10 +134,17 @@ main {
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   margin-bottom: 0.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 p {
   font-size: 0.85rem;
+}
+
+.book-cover {
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
 }

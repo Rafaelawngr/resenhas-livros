@@ -16,6 +16,7 @@ class Livro(models.Model):
     autor = models.CharField(max_length=45)
     ano = models.IntegerField()
     genero = models.CharField(max_length=45)
+    capa = models.URLField(null=True)
 
     def __str__(self):
         return self.titulo 
