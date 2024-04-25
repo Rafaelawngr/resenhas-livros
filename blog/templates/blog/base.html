@@ -1,29 +1,37 @@
 {% load static %}
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Clube do Livro</title>
-  <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
-</head>
-<body>
-  <aside>
-    <div class="topSection">
-      <div class="buttonsContainer">
-        <button class="navButton">Biblioteca</button>
-        <button class="navButton">Resenhas</button>
-        <button class="navButton">Minha conta</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clube do Livro</title>
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
+  </head>
+  <body>
+    <aside>
+      <div class="topSection">
+        <div class="buttonsContainer">
+          <button
+            class="navButton"
+            onclick="location.href='{% url 'biblioteca' %}'"
+          >
+            Biblioteca
+          </button>
+          <button class="navButton">Resenhas</button>
+          <button
+            class="navButton"
+            onclick="location.href='{% url 'minha-conta' %}'"
+          >
+            Minha conta
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="bottomSection">
-      <a href="../cadastro/index.html">
-        <button class="logoutButton">Sair</button>
-      </a>
-    </div>
-  </aside>
-  <main>
-    {% block content %}
-    {% endblock %}
-  </main>
-</body>
+      <div class="bottomSection">
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="logoutButton">Sair</button>
+        </form>
+      </div>
+    </aside>
+    <main>{% block content %} {% endblock %}</main>
+  </body>
 </html>

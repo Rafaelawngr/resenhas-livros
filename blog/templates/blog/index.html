@@ -1,11 +1,25 @@
 {% extends 'blog/base.html'%} {% block content %}
-<div class="filtersContainter">
-  <input class="searchBar" type="text" placeholder="Insira o nome do livro" />
-  <select class="filterOptions" name="filters" id="filters">
-    <option value="title">Título</option>
-    <option value="writer">Autor</option>
-    <option value="genre">Gênero</option>
-  </select>
+<div>
+  <form class="filtersContainter" action="" method="GET">
+    <input
+      class="searchBar"
+      type="text"
+      name="query"
+      placeholder="Insira o nome do livro"
+    />
+    <select class="filterOptions" name="filters" id="filters">
+      <option value="title" :data-placeholder="Insira o título do livro">
+        Título
+      </option>
+      <option value="writer" :data-placeholder="Insira o autor do livro">
+        Autor
+      </option>
+      <option value="genre" :data-placeholder="Insira o gênero do livro">
+        Gênero
+      </option>
+    </select>
+    <input type="submit" class="filter-btn" value="Filtrar" />
+  </form>
 </div>
 <div class="cardsContainer">
   {% for livro in livros %}
@@ -16,11 +30,27 @@
       alt="Capa do livro {{ livro.titulo }}"
     />
     <h3>{{ livro.titulo }}</h3>
-    <p>ISBN: {{ livro.isbn }}</p>
-    <p>Autor: {{ livro.autor }}</p>
-    <p>Gênero: {{ livro.genero }}</p>
-    <p>Ano de publicação: {{ livro.ano }}</p>
+    <div class="book-info">
+      {% comment %}
+      <p>ISBN: {{ livro.isbn }}</p>
+      {% endcomment %}
+      <p>Autor: {{ livro.autor }}</p>
+      <p>Gênero: {{ livro.genero }}</p>
+      <p>Ano de publicação: {{ livro.ano }}</p>
+    </div>
   </a>
   {% endfor %}
 </div>
 {% endblock %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const select = document.getElementById("filters");
+    select.addEventListener("change", function () {
+      const input = document.querySelector(".searchBar");
+      const placeholder =
+        this.options[this.selectedIndex].getAttribute("data-placeholder");
+      input.setAttribute("placeholder", placeholder);
+    });
+  });
+</script>

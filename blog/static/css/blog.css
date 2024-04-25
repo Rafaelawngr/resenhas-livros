@@ -83,21 +83,27 @@ main {
 .cardsContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
   margin-right: 4rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
 }
 
 .card {
   border: 1px solid transparent;
   box-shadow: 2px 2px 25px 2px #d3d3d3;
   padding: 1rem;
-  border-radius: 5%;
+  border-radius: 20px;
   transition: all 200ms ease-in-out;
   opacity: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  max-width: 250px;
 }
 
 .card:hover {
@@ -107,7 +113,7 @@ main {
 
 .filtersContainter {
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   justify-content: space-between;
   margin-right: 4rem;
 }
@@ -133,6 +139,19 @@ main {
   border: 1px solid #d3d3d3;
 }
 
+.filter-btn {
+  margin: 0 auto;
+  text-align: center;
+  width: 20%;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  background-color: #6d6df1;
+  cursor: pointer;
+}
+
 h3 {
   font-size: 1.15rem;
   margin-bottom: 0.5rem;
@@ -144,7 +163,13 @@ p {
 }
 
 .book-cover {
-  height: 200px;
+  height: 250px;
   object-fit: cover;
   margin-bottom: 0.5rem;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
 }

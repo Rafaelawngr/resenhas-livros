@@ -1,0 +1,44 @@
+{% extends 'blog/base.html'%} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/resenha.css' %}" />
+<main>
+  <div class="bookContainer">
+    <div class="coverCard">
+      <img
+        class="book-cover-large"
+        src="{{ livro.capa }}"
+        alt="Capa do livro {{ livro.titulo }}"
+      />
+    </div>
+
+    <div class="bookInfo">
+      <h4>Título: {{ livro.titulo }}</h4>
+      <h4>Autor: {{ livro.autor }}</h4>
+      <h4>Gênero: {{ livro.genero }}</h4>
+      <h4>Ano: {{ livro.ano }}</h4>
+    </div>
+  </div>
+
+  <div class="reviewsContainer">
+    <h4>Deixe sua resenha:</h4>
+    <textarea
+      class="reviewArea"
+      name="bookReview"
+      id="bookReview"
+      cols="30"
+      rows="7"
+    ></textarea>
+    <h1>Resenhas</h1>
+    {% for item in resenha %}
+    <div class="review">
+      <h3>{{ item.titulo }}</h3>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis est
+        aliquam ducimus nostrum consequuntur fugit rerum eius, odit quae
+        architecto ipsum qui tempora commodi corporis incidunt totam animi
+        sapiente quo.
+      </p>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock %}

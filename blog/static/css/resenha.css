@@ -1,0 +1,48 @@
+main {
+  grid-area: main;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  gap: 4rem;
+}
+
+.bookContainer {
+  display: flex;
+  gap: 4rem;
+  margin: 0 auto;
+}
+
+.coverCard {
+  padding: 2rem;
+  box-shadow: 2px 2px 25px 2px #d3d3d3;
+  border-radius: 10px;
+}
+
+.book-cover-large {
+  width: 250px;
+}
+
+.bookInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+h4 {
+  font-weight: 500;
+}
+
+.reviewArea {
+  resize: none;
+  outline: none;
+  border: 1px solid #acacac;
+  border-radius: 5px;
+}
+
+.reviewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
