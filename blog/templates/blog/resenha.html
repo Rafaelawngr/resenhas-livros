@@ -1,6 +1,6 @@
 {% extends 'blog/base.html'%} {% block content %} {% load static %}
 <link rel="stylesheet" href="{% static 'css/resenha.css' %}" />
-<main>
+  <h1>{{ livro.titulo }} - {{ livro.autor }} </h1>
   <div class="bookContainer">
     <div class="coverCard">
       <img
@@ -9,36 +9,26 @@
         alt="Capa do livro {{ livro.titulo }}"
       />
     </div>
-
-    <div class="bookInfo">
-      <h4>Título: {{ livro.titulo }}</h4>
-      <h4>Autor: {{ livro.autor }}</h4>
-      <h4>Gênero: {{ livro.genero }}</h4>
-      <h4>Ano: {{ livro.ano }}</h4>
-    </div>
+    <div class="form-review">
+   <h4>Deixe sua resenha aqui:</h4>
+    <form class="form" action="" method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <input class="newReviewBtn" type="submit" value="PUBLICAR RESENHA" />
+    </form>
   </div>
-
+  </div>
+  <h2>Resenhas</h2>
+  {% for resenha in resenhas %}
   <div class="reviewsContainer">
-    <h4>Deixe sua resenha:</h4>
-    <textarea
-      class="reviewArea"
-      name="bookReview"
-      id="bookReview"
-      cols="30"
-      rows="7"
-    ></textarea>
-    <h1>Resenhas</h1>
-    {% for item in resenha %}
-    <div class="review">
-      <h3>{{ item.titulo }}</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis est
-        aliquam ducimus nostrum consequuntur fugit rerum eius, odit quae
-        architecto ipsum qui tempora commodi corporis incidunt totam animi
-        sapiente quo.
-      </p>
-    </div>
-    {% endfor %}
+         <div class="review">
+             <h4>{{ resenha.usuario }}</h4>
+              <div class="review-title">
+                <h3>{{ resenha.titulo }}</h3>
+                <p>Nota {{ resenha.nota }}/5</p>
+               </div>
+             <p>{{ resenha.texto }}</p>
+        </div>
+      </div>
+      {% endfor %}
   </div>
-</main>
 {% endblock %}

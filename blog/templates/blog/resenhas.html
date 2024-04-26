@@ -1,0 +1,19 @@
+{% extends 'blog/base.html'%} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/resenha.css' %}" />
+<main>
+  {% for resenha in resenhas %}
+  <div class="reviewsContainer">
+    <div class="review">
+      <div class="review-title">
+        <h4>{{ resenha.usuario }}</h4>
+        <p>{{ resenha.data }}</p>
+      </div>
+      <h3>{{ resenha.titulo }}</h3>
+      <p>Nota {{ resenha.nota }}</p>
+      <p>{{ resenha.texto|slice:":250" }}...</p>
+      <a href="{% url 'resenha' resenha.pk %}" class="read-more">Ler Mais</a>
+    </div>
+  </div>
+  {% endfor %}
+</main>
+{% endblock %}

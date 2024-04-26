@@ -7,6 +7,8 @@ class CreateUser(forms.ModelForm):
     fields = ("usuario", "email", "senha")
 
 class CreateReview(forms.ModelForm):
-  class Meta:
-    model = Resenha
-    fields = ("titulo", "livro", "texto")
+    NOTA_VALUES = [(i, str(i)) for i in range(1, 6)]
+    nota = forms.ChoiceField(choices=NOTA_VALUES, label='Nota')
+    class Meta:
+        model = Resenha
+        fields = ("titulo", "texto", "nota")

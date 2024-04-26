@@ -8,7 +8,7 @@ class Usuario(models.Model):
     senha = models.CharField(max_length=45)
 
     def __str__(self):
-        return self.usuario
+        return self.usuario.username 
 
 class Livro(models.Model):
     isbn = models.CharField(primary_key=True, max_length=45)
@@ -24,8 +24,9 @@ class Livro(models.Model):
 class Resenha(models.Model):
     titulo = models.CharField(max_length=200)
     texto = models.TextField()
-    data = models.DateTimeField(default=timezone.now)
     livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
+    nota = models.IntegerField(null=True)
+    data = models.DateTimeField(default=timezone.now)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
  
     def publish(self):
@@ -34,14 +35,4 @@ class Resenha(models.Model):
 
     def __str__(self):
         return self.titulo
-
-
-class Avaliacao(models.Model):
-    pontuacao = models.IntegerField()
-    comentario = models.TextField()
-    livro = models.ForeignKey(Livro, on_delete=models.CASCADE)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.pontuacao
 

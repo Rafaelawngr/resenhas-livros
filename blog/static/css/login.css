@@ -63,6 +63,11 @@ input {
   border: none;
   background-color: #6d6df1;
   cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.registerBtn:hover {
+  background-color: #4a4aee;
 }
 
 .logo {

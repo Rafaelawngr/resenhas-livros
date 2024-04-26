@@ -7,5 +7,7 @@ urlpatterns = [
     path('minha-conta/', views.profile, name='minha-conta'),
     path('biblioteca', views.index, name='biblioteca'),
     path('blog/<int:pk>', views.resenha, name='resenha'),
+    path('blog/<int:pk>', views.post_new_review, name='nova-resenha'),
+    path('resenhas', views.show_all_reviews, name='resenhas'),
     path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout')
 ]
