@@ -1,0 +1,180 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-areas: "aside main main main main";
+}
+
+aside {
+  grid-area: aside;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0 0;
+  box-shadow: 6px 4px 10px #d3d3d3;
+  height: 100dvh;
+  position: fixed;
+  width: 15%;
+}
+
+.logo {
+  margin: 1.5rem auto 1rem;
+  width: 150px;
+}
+
+.topSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.navButton {
+  padding: 1.2rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  background-color: white;
+  border: none;
+  transition: all 200ms ease-in-out;
+}
+
+.navButton:hover {
+  background-color: #e2e2e2;
+  cursor: pointer;
+}
+
+.bottomSection {
+  width: 100%;
+}
+
+.logoutButton {
+  color: #d83939;
+  padding: 1rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  background-color: white;
+  border: none;
+  transition: all 200ms ease-in-out;
+  font-weight: 600;
+}
+
+.logoutButton:hover {
+  background-color: #fab3b3;
+  cursor: pointer;
+}
+
+main {
+  grid-area: main;
+  margin: 2.5rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-right: 4rem;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.card {
+  border: 1px solid transparent;
+  box-shadow: 2px 2px 25px 2px #d3d3d3;
+  padding: 1rem;
+  border-radius: 20px;
+  transition: all 200ms ease-in-out;
+  opacity: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 250px;
+}
+
+.card:hover {
+  opacity: 100%;
+  cursor: pointer;
+}
+
+.filtersContainter {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-right: 4rem;
+}
+
+.searchBar {
+  width: 70%;
+  height: 2.5rem;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 2px 2px 15px 2px #d3d3d3;
+  padding: 1rem;
+  outline: none;
+}
+
+.searchBar::placeholder {
+  color: #a7a7a7;
+}
+
+.filterOptions {
+  width: 30%;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid #d3d3d3;
+}
+
+.filter-btn {
+  margin: 0 auto;
+  text-align: center;
+  width: 20%;
+  border-radius: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  border: none;
+  background-color: #6d6df1;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.filter-btn:hover {
+  background-color: #4a4aee;
+}
+
+h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+  font-size: 0.85rem;
+}
+
+.book-cover {
+  height: 250px;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
