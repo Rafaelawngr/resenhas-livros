@@ -33,24 +33,24 @@ def index(request):
 
   return render(request, 'blog/index.html', {"livros": livros})
 
-def resenha(request, pk):
-    livro = get_object_or_404(Livro, pk=pk)
-    resenhas = Resenha.objects.filter(livro=livro)
+# def resenha(request, pk):
+#     livro = get_object_or_404(Livro, pk=pk)
+#     resenhas = Resenha.objects.filter(livro=livro)
     
-    if request.method == 'POST':
+#     if request.method == 'POST':
 
-        form = CreateReview(request.POST)
-        if form.is_valid():
-            resenha = form.save(commit=False)
-            resenha.livro = livro
-            usuario, _ = Usuario.objects.get_or_create(email=request.user.email)
-            resenha.usuario = usuario
-            resenha.save()
-            return redirect('resenha', pk=pk)
-    else:
-        form = CreateReview()
+#         form = CreateReview(request.POST)
+#         if form.is_valid():
+#             resenha = form.save(commit=False)
+#             resenha.livro = livro
+#             usuario, _ = Usuario.objects.get_or_create(email=request.user.email)
+#             resenha.usuario = usuario
+#             resenha.save()
+#             return redirect('resenha', pk=pk)
+#     else:
+#         form = CreateReview()
     
-    return render(request, 'blog/resenha.html', {'livro': livro, 'resenhas': resenhas, 'form': form})
+#     return render(request, 'blog/resenha.html', {'livro': livro, 'resenhas': resenhas, 'form': form})
 
 def post_new_review(request, pk):
     livro = get_object_or_404(Livro, pk=pk)
